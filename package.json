@@ -6,8 +6,8 @@
   "name": "server.js",
   "description": "This assignment will help you stand up a web API using Express and the module that you produced for a03.",
   "version": "1.0.0",
-  "main": "node server.js --port=5555",
-  "devDependencies": {},
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "node server.js --port=5555"
   },
