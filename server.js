@@ -4,5 +4,8 @@ import {roll} from "../lib/roll.js";
 
 const args = minimist(process.argv.slice(2));
 
-const port = args.port;
+var port = args.port;
 
+if (port == null) {
+    port = 5000;
+}
