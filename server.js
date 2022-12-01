@@ -8,8 +8,9 @@ const args = minimist(process.argv.slice(2));
 var port = args.port;
 const app = express();
 
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
+// Make sure port isn't null
 if (port == null) {
     port = 5000;
 }
@@ -49,4 +50,5 @@ app.get('*', (req, res) => {
     res.send("404 NOT FOUND");
 });
 
+// Listening at the port
 app.listen(port);
