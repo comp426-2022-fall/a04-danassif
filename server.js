@@ -29,12 +29,9 @@ app.post('/app/roll/', (req, res) => {
 
 
 
-
-
-
-
-
 // Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
 app.get('*', (req, res) => {
     res.send("404 NOT FOUND");
 });
+
+app.listen(port);
