@@ -27,6 +27,13 @@ app.post('/app/roll/', (req, res) => {
 	res.send(JSON.stringify(roll(parseInt(req.parameters.sides), parseInt(req.paramters.dice), parseInt(req.parameters.rolls))));
 });
 
+// Default rolls and dice, side passed in
+app.get('/app/roll/:sides/', (req, res) =>{
+    res.send(roll(parseInt(req.param.sides), 2, 1));
+});
+
+
+
 
 
 // Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
