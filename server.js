@@ -9,6 +9,7 @@ var port = args.port;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Make sure port isn't null
 if (port == null) {
