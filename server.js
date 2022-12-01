@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
+// Import needed modules
 import minimist from "minimist";
 import express from 'express';
 import {roll} from "./lib/roll.js";
 
+// Load in arguments, port, and app
 const args = minimist(process.argv.slice(2));
 var port = args.port;
 const app = express();
