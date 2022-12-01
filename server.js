@@ -32,6 +32,11 @@ app.get('/app/roll/:sides/', (req, res) =>{
     res.send(roll(parseInt(req.param.sides), 2, 1));
 });
 
+// Default rolls, dice and side passed in
+app.get('/app/roll/:sides/:dice/', (req, res) => {
+    res.send(roll(parseInt(req.parameters.sides), parseInt(req.parameters.dice), 1));
+});
+
 
 
 
