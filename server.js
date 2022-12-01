@@ -19,3 +19,17 @@ app.get('/app/', (req, res) => {
 app.get('/app/roll/', (req, res) => {
     res.send(roll(6, 2, 1));
 });
+
+
+
+
+
+
+
+
+
+
+// Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
+app.get('*', (req, res) => {
+    res.send("404 NOT FOUND");
+});
