@@ -14,3 +14,8 @@ if (port == null) {
 app.get('/app/', (req, res) => {
     res.send('200 OK');
 });
+
+// Endpoint /app/roll/ that returns JSON for a default roll of two six-sided dice one time. Example output might look like: {"sides":6,"dice":2,"rolls":1,"results":[12]}.
+app.get('/app/roll/', (req, res) => {
+    res.send(roll(6, 2, 1));
+});
