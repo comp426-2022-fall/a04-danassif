@@ -8,6 +8,8 @@ const args = minimist(process.argv.slice(2));
 var port = args.port;
 const app = express();
 
+//app.use(express.urlencoded({ extended: true }));
+
 if (port == null) {
     port = 5000;
 }
@@ -24,26 +26,23 @@ app.get('/app/roll/', (req, res) => {
 
 // endpoint accept JSON or URLEncoded
 app.post('/app/roll/', (req, res) => {
-	res.send(JSON.stringify(roll(parseInt(req.param.sides), parseInt(req.param.dice), parseInt(req.param.rolls))));
+	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 });
 
 // Default rolls and dice, side passed in
 app.get('/app/roll/:sides/', (req, res) =>{
-    res.send(roll(parseInt(req.param.sides), 2, 1));
+    res.send(roll(parseInt(req.params.sides), 2, 1));
 });
 
 // Default rolls, dice and side passed in
 app.get('/app/roll/:sides/:dice/', (req, res) => {
-    res.send(roll(parseInt(req.param.sides), parseInt(req.param.dice), 1));
+    res.send(roll(parseInt(req.params.sides), parseInt(req.param.dice), 1));
 });
 
 // No defaults, pass in all values
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
-    res.send(roll(parseInt(req.param.sides), parseInt(req.param.dice), parseInt(req.param.rolls)));
+    res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 });
-
-
-
 
 // Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
 app.get('*', (req, res) => {
