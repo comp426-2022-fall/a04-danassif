@@ -8,9 +8,6 @@ const args = minimist(process.argv.slice(2));
 var port = args.port;
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
 // Make sure port isn't null
 if (port == null) {
     port = 5000;
@@ -28,7 +25,7 @@ app.get('/app/roll/', (req, res) => {
 
 // endpoint accept JSON or URLEncoded
 app.post('/app/roll/', (req, res) => {
-	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
+	res.send(roll(parseInt(req.body.sides), parseInt(req.body.dice), parseInt(req.body.rolls)));
 });
 
 // Default rolls and dice, side passed in
