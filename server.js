@@ -10,17 +10,20 @@ if (port == null) {
     port = 5000;
 }
 
-// Check endpoint at /app/ that returns 200 OK.
+// Check endpoint at app that returns 200 OK
 app.get('/app/', (req, res) => {
     res.send('200 OK');
 });
 
-// Endpoint /app/roll/ that returns JSON for a default roll of two six-sided dice one time. Example output might look like: {"sides":6,"dice":2,"rolls":1,"results":[12]}.
+// Endpoint returns JSON for a default roll of two six-sided dice 
 app.get('/app/roll/', (req, res) => {
     res.send(roll(6, 2, 1));
 });
 
-
+// endpoint accept JSON or URLEncoded
+app.post('/app/roll/', (req, res) => {
+	res.send(JSON.stringify(roll(parseInt(req.parameters.sides), parseInt(req.paramters.dice), parseInt(req.parameters.rolls))));
+});
 
 
 
