@@ -24,7 +24,7 @@ app.get('/app/roll/', (req, res) => {
 
 // endpoint accept JSON or URLEncoded
 app.post('/app/roll/', (req, res) => {
-	res.send(JSON.stringify(roll(parseInt(req.parameters.sides), parseInt(req.paramters.dice), parseInt(req.parameters.rolls))));
+	res.send(JSON.stringify(roll(parseInt(req.param.sides), parseInt(req.param.dice), parseInt(req.param.rolls))));
 });
 
 // Default rolls and dice, side passed in
@@ -34,12 +34,12 @@ app.get('/app/roll/:sides/', (req, res) =>{
 
 // Default rolls, dice and side passed in
 app.get('/app/roll/:sides/:dice/', (req, res) => {
-    res.send(roll(parseInt(req.parameters.sides), parseInt(req.parameters.dice), 1));
+    res.send(roll(parseInt(req.param.sides), parseInt(req.param.dice), 1));
 });
 
 // No defaults, pass in all values
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
-    res.send(roll(parseInt(req.parameters.sides), parseInt(req.parameters.dice), parseInt(req.parameters.rolls)));
+    res.send(roll(parseInt(req.param.sides), parseInt(req.param.dice), parseInt(req.param.rolls)));
 });
 
 
